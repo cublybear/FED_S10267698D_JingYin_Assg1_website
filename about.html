@@ -26,6 +26,7 @@
                 </a>
                 <a href="cart.html">
                     <i class="fas fa-cart-shopping"></i>
+                    <div class="cartAmount" id="cart-icon">0</div>
                 </a>
             </div>
         </div>
@@ -67,5 +68,23 @@
         <i class="fa-brands fa-instagram"></i>
         <i class="fa-brands fa-x-twitter"></i>
     </footer>
+    <script>
+    cart = JSON.parse(localStorage.getItem("cart"))
+    function totalquantity(cart){
+    let total = 0
+    for (let i = 0; i < cart.length; i++) {
+        total += cart[i].quantity;  // Increase quantity if the item already exists
+    }
+    let icon = document.getElementById("cart-icon")
+    icon.textContent = total
+    if (!total){
+        icon.classList.add('empty');
+    }
+    else{
+        icon.classList = "cartAmount"
+    }
+    }   
+    totalquantity(cart)
+    </script>
 </body>
 </html>

@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="style.css" type="text/css">
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script src="script.js"></script>
     <script src="https://kit.fontawesome.com/fcf58dc318.js" crossorigin="anonymous"></script>
     <style>
         body{
@@ -15,6 +14,12 @@
         }
         footer{
             background: transparent;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            padding: 20px;
+            text-align: center;
         }
     </style>
 </head>
@@ -35,13 +40,13 @@
                 </a>
                 <a href="cart.html">
                     <i class="fas fa-cart-shopping"></i>
+                    <div class="cartAmount" id="cart-icon">0</div>
                 </a>
             </div>
         </div>
     </header>
-    <section>
         <div class="account">
-            <div class="account-signin">
+            <div class="account-page active" id="signin">
                 <h2>SIGN IN</h2>
                 <form action="#">
                     <div class="signin-input">
@@ -56,11 +61,11 @@
                     </div>
                     <button type="submit" class="account-button">SIGN IN</button>
                     <div class="account-signup">
-                        <p>Don't have an account? <a href="#" class="signup-link">Sign Up</a></p>
+                        <p>Don't have an account? <a href="#" onclick="changetab('signin')" class="signup-link">Sign Up</a></p>
                     </div>
                 </form>
             </div>
-            <div class="account-signup">
+            <div class="account-page" id="signup">
                 <h2>SIGN UP</h2>
                 <form action="#">
                     <div class="signup-input">
@@ -85,17 +90,44 @@
                     </div>
                     <button type="submit" class="account-button">SIGN UP</button>
                     <div class="account-signup">
-                        <p>Have an account? <a href="#" class="signup-link">Sign In</a></p>
+                        <p>Have an account? <a href="#" onclick="changetab('signup')" class="signin-link">Sign In</a></p>
                     </div>
                 </form>
             </div>
         </div>
-    </section>
     <footer>
         <p>© 2024 Soap Singapore</p>
         <i class="fa-brands fa-facebook-f"></i>
         <i class="fa-brands fa-instagram"></i>
         <i class="fa-brands fa-x-twitter"></i>
     </footer>
+    <script src="script.js"></script>
+    <script>
+    cart = JSON.parse(localStorage.getItem("cart"))
+    function totalquantity(cart){
+    let total = 0
+    for (let i = 0; i < cart.length; i++) {
+        total += cart[i].quantity;  // Increase quantity if the item already exists
+    }
+    let icon = document.getElementById("cart-icon")
+    icon.textContent = total
+    if (!total){
+        icon.classList.add('empty');
+    }
+    else{
+        icon.classList = "cartAmount"
+    }
+    }   
+    totalquantity(cart)
+    </script>
 </body>
 </html>
+<!-- <script>
+    var tabs = document.getElementsByClassName("account-page")
+    function changetab(name){
+        for(tab of tabs){
+            tab.classList.remove("active");
+        }
+        document.getElementById(name).classList.add("active");
+    }
+</script> -->

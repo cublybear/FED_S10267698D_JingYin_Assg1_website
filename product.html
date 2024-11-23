@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soap</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <script src="https://kit.fontawesome.com/fcf58dc318.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="navbar-left">
+                <div>SOAP</div>
+            </div>
+            <div class="navbar-center">
+                <a href="index.html"><div>HOME</div></a>
+                <a href="shop.html"><div>SHOP</div></a>
+                <a href="about.html"><div>ABOUT</div></a>
+            </div>
+            <div class="navbar-right">
+                <a href="account.html">
+                    <i class="fas fa-user"></i>
+                </a>
+                <a href="cart.html">
+                    <i class="fas fa-cart-shopping"></i>
+                    <div class="cartAmount" id="cart-icon">0</div>
+                </a>
+            </div>
+        </div>
+    </header>
+    <section class="product-page">
+        <div class="product-image">
+            <img src="Item 1.png" width="100%" id="product-image" alt="">
+        </div>
+        <div class="product-details">
+            <h3 id="product-name">FLORIST SOAP</h3>
+            <p id="product-details">A refreshing blend of essential oils and walnut shells, perfect for transforming messy hands into masterpieces!</p>
+            <p id="product-price">$13.00 SGD</p>
+            <p>QUANTITY</p>
+            <div class="quantity">
+                <button id="minus" onclick="minus()">-</button>
+                <input class="counter" type= "number" text="1" id="item-quantity" min="1" onkeyup=imposeMinMax(this)>
+                <button id="plus" onclick="add()">+</button>
+            </div>
+            <button onclick="addcart()">ADD TO CART</button>
+            <p id="product-long">Florist Soap is designed for floral designers, gardeners, and anyone who enjoys creating beauty, even when things get a bit messy. Infused with essential oils of rosemary, eucalyptus, peppermint, and ginger, this soap presents a refreshing and distinctive blend. To enhance its cleaning power, finely ground walnut shells are mixed in, making it perfect for scrubbing away dirt and grime from diligent hands.</p>
+        </div>
+    </section>
+    <footer>
+        <p>© 2024 Soap Singapore</p>
+        <i class="fa-brands fa-facebook-f"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-x-twitter"></i>
+    </footer>
+    <script >
+
+    
+    function add(){
+    count =  parseInt(document.getElementById("item-quantity").value) || 0
+    count++
+    document.getElementById("item-quantity").value = count;
+    }
+    function minus(){
+    count =  parseInt(document.getElementById("item-quantity").value) || 0
+    count = Math.max(count-1,1)
+    document.getElementById("item-quantity").value =count
+    }
+    function updateCounterDisplay() {
+    const counterDisplay = document.getElementById('item-quantity');
+    if (counterDisplay) {
+        counterDisplay.value = 1;
+    }
+    }
+    
+    // Get the query string from the URL (e.g., "?id=2")
+    const urlParams = new URLSearchParams(window.location.search);
+
+    // Get the value of the "id" query parameter
+    const productId = urlParams.get('id');  // This will be "2" in the example URL
+
+    // Log the product ID (for testing purposes)
+    console.log('Product ID:', productId);
+    const products = {
+    1: { 
+        name: 'FLORIST SOAP', 
+        price: '$13.00 SGD', 
+        description: 'A refreshing blend of essential oils and walnut shells, perfect for transforming messy hands into masterpieces!',
+        image: 'Item 1.png',
+        long: "Florist Soap is designed for floral designers, gardeners, and anyone who enjoys creating beauty, even when things get a bit messy. Infused with essential oils of rosemary, eucalyptus, peppermint, and ginger, this soap presents a refreshing and distinctive blend. To enhance its cleaning power, finely ground walnut shells are mixed in, making it perfect for scrubbing away dirt and grime from diligent hands."
+    },
+    2: { 
+        name: 'CHAI', 
+        price: '$13.00 SGD', 
+        description: 'A warm and fragrant tea.', 
+        image: 'Item 2.png',
+        long:"A luxurious blend that captures the warm, aromatic essence of your favorite spiced tea. Infused with a rich mix of cinnamon, cardamom, and ginger essential oils, this soap offers a soothing fragrance that invigorates the senses. Its creamy lather gently cleanses while moisturizing your skin, leaving it feeling soft and refreshed. Each bar is crafted with natural ingredients, making it a delightful addition to your self-care routine. Embrace the comforting aroma of chai and transform your daily wash into a rejuvenating ritual."
+    },
+    3: { 
+        name: 'FROSTED', 
+        price: '$13.00 SGD', 
+        description: 'A frosty, cool scent for your home.',
+        image: 'Item 3.png',
+        long:"A whimsical blend of delicate pink hues and refreshing scents that evoke the magic of a winter wonderland. Infused with notes of sweet raspberry and creamy vanilla, this soap delivers a delightful fragrance that brightens your mood with every wash. Its gentle formula lathers beautifully, cleansing and nourishing your skin while leaving it feeling silky smooth. With a charming frosted finish, this soap is not only a treat for the senses but also a stunning addition to your bathroom décor. Elevate your bathing experience with the enchanting allure of Frosted Soap!"
+    },
+    4: { 
+        name: 'WOODLAND', 
+        price: '$13.00 SGD', 
+        description: 'A woodsy, earthy fragrance.',
+        image: 'Item 4.png',
+        long:"An invigorating blend that brings the essence of nature right to your bath. Infused with refreshing notes of cedarwood, pine, and a hint of fresh moss, this soap transports you to a serene forest retreat with every use. Its natural formula lathers luxuriously, gently cleansing and moisturizing your skin, leaving it feeling rejuvenated and refreshed. The earthy green hue adds a touch of tranquility to your bathroom décor, making each wash a moment of relaxation. Embrace the great outdoors and let Woodland Soap elevate your daily routine!"
+    },
+    5: { 
+        name: 'PINE DOUGH', 
+        price: '$13.00 SGD', 
+        description: 'A pine-scented dough for crafting.',
+        image: 'Item 5.png',
+        long:"A refreshing tribute to the crisp, invigorating scent of a pine forest. Enriched with essential oils of fresh pine and eucalyptus, this soap delivers an energizing fragrance that awakens your senses and revitalizes your spirit. Its creamy lather gently cleanses and nourishes your skin, leaving it feeling soft and rejuvenated. With a natural green hue that mirrors the beauty of nature, Pine Bough Soap transforms your daily wash into a soothing escape into the wilderness. Embrace the essence of the outdoors and let this enchanting soap elevate your self-care routine!"
+    },
+    6: { 
+        name: 'SIMPLY', 
+        price: '$11.00 SGD', 
+        description: 'A simple, classic fragrance.',
+        image: 'Item 6.png',
+        long:"The embodiment of purity and simplicity in skincare. Crafted with minimal ingredients, this gentle soap is perfect for all skin types, offering a refreshing cleanse without any frills. Its mild formula features nourishing oils that leave your skin feeling clean, soft, and hydrated. With a subtle, fresh scent and a clean, white appearance, Simply Soap elevates your daily routine to a moment of tranquility. Embrace the beauty of simplicity and let your skin experience the straightforward goodness it deserves!"
+
+    }
+};
+    const product = products[productId];
+    if (product) {
+        document.getElementById('product-name').textContent = `${product.name}`;
+        document.getElementById('product-price').textContent = `${product.price}`;
+        document.getElementById('product-image').src = product.image;
+        document.getElementById('product-long').textContent = `${product.long}`;
+    } else {
+        document.getElementById('product-info').textContent = 'Product not found.';
+    }
+    var countref = `counter${productId}`;
+    document.addEventListener('DOMContentLoaded', () => {
+    updateCounterDisplay();
+
+    });
+    let count =1;
+    function imposeMinMax(el){
+        if(el.value != ""){
+            if(parseInt(el.value) < parseInt(el.min)){
+                el.value = el.min;
+            }
+        }
+    }
+    if(!localStorage.getItem("cart")){
+        localStorage.setItem("cart",JSON.stringify([]))
+    }
+    cart = JSON.parse(localStorage.getItem("cart"))
+    function totalquantity(cart){
+    let total = 0
+    for (let i = 0; i < cart.length; i++) {
+        total += cart[i].quantity;  // Increase quantity if the item already exists
+    }
+    let icon = document.getElementById("cart-icon")
+    icon.textContent = total
+    if (!total){
+        icon.classList.add('empty');
+    }
+    else{
+        icon.classList = "cartAmount"
+    }
+    }   
+    totalquantity(cart)
+    function addcart(){
+        let done = 0;
+        for (let i = 0; i < cart.length; i++) {
+        if (cart[i].id === productId) {
+            cart[i].quantity += count;  // Increase quantity if the item already exists
+            done = true;  // Set done to true
+            break;  // Exit the loop once we find the item
+        }
+    }
+        if(!done){
+        cart.push( {id: productId, name:`${product.name}`, quantity: count,price:`${product.price}`})
+        
+        }
+        console.log(cart);
+        localStorage.setItem("cart",JSON.stringify(cart))
+        alert(`Added ${count} ${product.name} to cart.`);
+        totalquantity(cart)
+    }
+    
+    </script>
+</body>
+</html>

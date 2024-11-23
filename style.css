@@ -3,6 +3,7 @@ html, body{
     height: 100%;
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
 }
 
 header{
@@ -17,6 +18,7 @@ header{
     display: flex;
     width: 100%;
     text-align: center;
+    flex-direction: row;
 }
 
 .navbar-left{
@@ -70,7 +72,7 @@ header{
     border-radius: 5px; /* Rounded corners */
     align-items: center; /* Vertically center the icon and text */
 }
-
+/*---------------------------------------- Home Page ----------------------------------------*/
 .showcase img{
     display: block;
     width: 100%;
@@ -97,7 +99,7 @@ header{
 
 .overlay-text{
     color: white; /* Text color */
-    font-size: 35px; /* Font size */
+    font-size: min(5vw,55px); /* Font size */
     font-weight: bold; /* Make the text bold */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Optional: shadow for better readability */
     padding: 10px; /* Padding around the text */
@@ -106,7 +108,7 @@ header{
 .overlay-button{
     width: fit-content;
     padding: 10px 25px; /* Padding around the button text */
-    font-size: 20px; /* Button text size */
+    font-size: min(3vw,25px); /* Button text size */
     background-color: rgba(158, 173, 123, 1); /* Semi-transparent dark background */
     color: white; /* White text color */
     border: none; /* Remove default button border */
@@ -117,7 +119,7 @@ header{
 }
 
 .index-about img{
-    max-width: 50%;
+    max-width: 90%;
     flex-basis: 50%;
     box-sizing: border-box;
     object-fit: contain; /* Prevent stretching */
@@ -138,13 +140,14 @@ header{
 
 .index-about-title{
     flex-basis: 50%;
+    max-width: 80%;
     box-sizing: border-box;
     flex-grow: 1;
 }
 
 .index-about-text{
     color: black; /* Text color */
-    font-size: 1.5vw; /* Font size */
+    font-size:  max(1.5vw,20px); /* Font size */
     padding: 10px; /* Padding around the text */
     flex-direction: column;
     flex-grow: 1;
@@ -155,7 +158,7 @@ header{
     top: 80%; /* Vertically center the button */
     left: 60%; /* Horizontally center the button */
     padding: 10px 25px; /* Padding around the button text */
-    font-size: 1.5vw; /* Button text size */
+    font-size: max(1.5vw,20px); /* Button text size */
     background-color: rgba(158, 173, 123, 1); /* Semi-transparent dark background */
     color: white; /* White text color */
     border: none; /* Remove default button border */
@@ -166,11 +169,12 @@ header{
     flex-direction: column;
 }
 
-ul{
+/* ul{
     list-style-type: none;
-}
+} */
 
-.container{
+/*---------------------------------------- Shop Page ----------------------------------------*/
+.shop-container{
     padding-top: 5%;
     padding-bottom: 5%;
     display: flex;
@@ -208,6 +212,77 @@ ul{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+/*---------------------------------------- Product Page ----------------------------------------*/
+.product-page{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 10px;
+    gap: 20px;
+    padding-bottom: 100px;
+
+}
+.product-details button {
+    position: relative;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    color:white;
+    background-color:rgba(158, 173, 123, 1);
+}
+.product-details{
+    max-width: 80%;
+    color: black;
+    flex-grow: 1;
+    flex-basis: 45%;
+    box-sizing: border-box;
+    justify-content: center;
+    
+}
+.product-image{
+    max-width: 50%;
+    flex-basis: 35%;
+    box-sizing: border-box;
+    object-fit: contain; /* Prevent stretching */
+    margin: 20px;
+    padding-right: 50px;
+}
+@media screen and (max-width: 768px) { /* You can adjust 768px to any breakpoint you want */
+    .product-page {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        align-items: center; /* Optional: center items horizontally */
+    }
+
+    .product-details, .product-image {
+        flex-basis: 90%; /* On small screens, each will take up 90% of the width */
+        margin: 20px;
+        padding: 0;
+    }
+}
+.quantity {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    border: #333;
+}
+
+.counter {
+    width: 35px;
+    border: transparent;
+    color: black;
+}
+
+.quantity button {
+    padding: 5px 10px;
+    border: 2px rgba(158, 173, 123, 1);
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/*---------------------------------------- About Page ----------------------------------------*/
 .about{
     padding: 20px;
     margin: 20px;
@@ -232,11 +307,12 @@ ul{
     font-size: 20px;
 }
 
+/*---------------------------------------- Account Page ----------------------------------------*/
 .account{
     color: black;
     position:relative;
     width: 380px;
-    height: 380px;
+    height: fit-content;
     background: transparent;
     border: 2px solid white;
     border-radius: 20px;
@@ -245,34 +321,37 @@ ul{
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* command this line out for testing */
+    /* overflow: hidden; command this line out for testing */
     transition: height .2s ease;
+    flex-wrap: nowrap;
+    margin: auto;
 }
 
-.account .account-signin,.account .account-signup{
+/* .account .account-signin,.account .account-signup{
     width: 100%;
     padding: 40px;
 }
+*/
 
-.account .account-signin{
-    transition: transform .18s ease;
-    transform: translateX(0);
+ .account-page {
+    padding: 10%;
+    display: none;
+    transition: transform.18s ease;
+    content:"";
 }
 
-.account .account-signup{
+.account-page.active{
+    display:block;
+}
+/* .account-page .account-signup{
     position: absolute;
     transition: none;
     transform: translateX(400px);
-}
+}  */
 
-.account.active .account-signin{
+.account-page .account-signin{
     transition: none;
     transform: translateX(-400px);
-}
-
-.account.active .account-signup{
-    transition: transform .18s ease;
-    transform: translateX(0);
 }
 
 .account-signin h2, .account-signup h2{
@@ -292,7 +371,6 @@ ul{
 .signin-input label, .signin-input label{
     position: absolute;
     top: 50%;
-    left: 40px;
     transform: translateY(-50%);
     font-size: 1em;
     color: black;
@@ -302,7 +380,7 @@ ul{
 }
 
 .signin-input input:focus~label,
-.signin-input input:valid~label {
+.signin-input input:valid~label, .signin-input input:valid~label {
     top: -5px;
 }
 
@@ -315,7 +393,7 @@ ul{
     font-size: 1em;
     color: black;
     font-weight: 600;
-    padding: 0 35px 0 35px;
+    /* padding: 0 35px 0 35px; */
 }
 
 .signin-input .icon, .signup-input .icon{
@@ -357,12 +435,22 @@ ul{
     text-decoration: underline;
 }
 
+/*---------------------------------------- Cart Page ----------------------------------------*/
+.cart{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
 .cart-title{
     color: rgba(158, 173, 123, 1);
     font-size: 25px;
     text-align: center;
 }
-
+.cart-summary{
+    flex-basis: 20%;
+    flex-grow: 2;
+    align-items: left;
+}
 .cartAmount{
     position: absolute;
     top: 20px;
@@ -372,16 +460,248 @@ ul{
     color: white;
     padding: 3px;
     border-radius: 3px;
+    
+    
+}
+.cartAmount.empty{
+    display: none;
+}
+
+.cart-items {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 70%;
+    flex-grow: 3;
+    
+}
+.pay{
+    justify-content: center;
+}
+.cart-item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 40px;
+}
+  
+.cart-item img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover; /* Ensures the image covers the container */
+}
+  
+.item-details {
+    flex: 1; 
+    color:rgba(158, 173, 123, 1);
+    padding: 20px;
+}
+.empty{
+    color: black;
+    text-align: centers;
+}
+  
+
+.item-quantity{
+    width: 25px;
+    border: transparent;
+}
+
+.quantity button {
+    padding: 5px 10px;
+    border: 2px rgba(158, 173, 123, 1);
+    cursor: pointer;
+    border-radius: 5px;
+}
+  
+.cart-item button {
+    color:rgba(158, 173, 123, 1);
+    background-color: transparent;
+    font-size: 2em;
+    border: none;
+    cursor: pointer;
+}
+  
+.cart-summary {
+    margin-top: 20px;
+    text-align: center;
+    justify-content: center;
+    padding: 20px;
+    margin: 20px;
+    width: 200px;
+    height: 100px;
+    border: 1px solid rgba(158, 173, 123, 1);
+}
+
+.cart-summary span {
+    position: relative;
+    color:rgba(158, 173, 123, 1);
+}
+  
+.cart-summary button {
+    position: relative;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color:rgba(158, 173, 123, 1);
 }
 
 @media (max-width: 900px){
     .flex-item {
         flex-basis: 48%;
     }
+
+    .cart-items {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .cart-item {
+    width: 50%;
+    border: none;
+    }
+
 }
 
 footer{
     background-color: rgba(158, 173, 123, 1);
     padding: 20px;
     text-align: center;
+}
+section{
+    padding-bottom: 20rem;
+}
+
+/*---------------------------------------- Payment Page ----------------------------------------*/
+h1{
+    padding-left: 30px;
+    color:rgba(158, 173, 123, 1);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.payment-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    flex-wrap: wrap-reverse;
+}
+  
+.form-section {
+    flex: 2;
+    padding: 20px;
+    color: black;
+    background-color: transparent;
+    margin-right: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex-basis: 50%;
+}
+
+.summary-section {
+    flex: 1;
+    color: black;
+    padding: 20px;
+    background-color: rgb(222, 221, 221);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+  
+.form-section h2 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.form-section p {
+    color: gray;
+}
+  
+.form-input {
+    margin-bottom: 15px;
+}
+  
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+  
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+  
+.input-flex {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+  
+button.pay-button {
+    width: 100%;
+    padding: 15px;
+    background-color: rgba(158, 173, 123, 1);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+  
+button.pay-button:hover {
+    background-color: rgba(158, 173, 123, 1);
+}
+  
+.return-link {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+    color: #6ca24a;
+    text-decoration: none;
+}
+  
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+  
+.summary-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+  
+.total {
+    font-weight: bold;
+    text-align: right;
+    margin-top: 10px;
+}
+
+.payment-quantity{
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 12px;
+    background-color: grey;
+    color: white;
+    padding: 3px;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    z-index: 10;
+}
+.imgcon{
+    position: relative  ;
+}
+.summary-section .item-details{
+    color:black;
 }
