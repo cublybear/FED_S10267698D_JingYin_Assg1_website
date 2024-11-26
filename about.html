@@ -26,7 +26,7 @@
                 </a>
                 <a href="cart.html">
                     <i class="fas fa-cart-shopping"></i>
-                    <div class="cartAmount" id="cart-icon">0</div>
+                    <div class="cart-amount" id="cart-icon">0</div>
                 </a>
             </div>
         </div>
@@ -64,27 +64,38 @@
     </section>
     <footer>
         <p>© 2024 Soap Singapore</p>
-        <i class="fa-brands fa-facebook-f"></i>
-        <i class="fa-brands fa-instagram"></i>
-        <i class="fa-brands fa-x-twitter"></i>
+        <a href = "https://www.facebook.com/">
+            <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <a href = "https://www.instagram.com/">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href = "https://x.com/"></a>
+            <i class="fa-brands fa-x-twitter"></i>
+        </a>
     </footer>
     <script>
-    cart = JSON.parse(localStorage.getItem("cart"))
-    function totalquantity(cart){
-    let total = 0
-    for (let i = 0; i < cart.length; i++) {
-        total += cart[i].quantity;  // Increase quantity if the item already exists
-    }
-    let icon = document.getElementById("cart-icon")
-    icon.textContent = total
-    if (!total){
-        icon.classList.add('empty');
-    }
-    else{
-        icon.classList = "cartAmount"
-    }
-    }   
-    totalquantity(cart)
+        // Retrieve the cart data from localStorage and parse it into an array of items
+        cart = JSON.parse(localStorage.getItem("cart"));
+        // Function to calculate and update the total quantity of items in the cart
+        function totalquantity(cart){
+            let total = 0;
+            // Loop through each item in the cart and add its quantity to the total
+            for (let i = 0; i < cart.length; i++){
+                total += cart[i].quantity; // Increase quantity if the item already exists
+            }
+            // Select the cart icon element where the total quantity will be displayed
+            let icon = document.getElementById("cart-icon");
+            // Update the cart icon's text content to show the total quantity of items
+            icon.textContent = total;
+            if (!total){
+                icon.classList.add('empty');
+            }
+            else{
+                icon.classList = "cart-amount";
+            }
+        }
+        totalquantity(cart);
     </script>
 </body>
 </html>

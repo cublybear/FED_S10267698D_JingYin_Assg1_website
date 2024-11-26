@@ -63,7 +63,6 @@ header{
     display: flex;
     justify-content: right;
     flex: 0;
-    background-color: rgba(158, 173, 123, 1);
     border: none; /* Remove border */
     color: white; /* White text */
     text-align: center; /* Center the text */
@@ -72,6 +71,7 @@ header{
     border-radius: 5px; /* Rounded corners */
     align-items: center; /* Vertically center the icon and text */
 }
+
 /*---------------------------------------- Home Page ----------------------------------------*/
 .showcase img{
     display: block;
@@ -82,7 +82,7 @@ header{
 .showcase{
     position: relative;
     width: 100%;
-    height: auto;
+
     display: flex;
 }
 
@@ -99,10 +99,10 @@ header{
 
 .overlay-text{
     color: white; /* Text color */
-    font-size: min(5vw,55px); /* Font size */
+    font-size: min(5vw,50px); /* Font size */
     font-weight: bold; /* Make the text bold */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Optional: shadow for better readability */
-    padding: 10px; /* Padding around the text */
+    padding: 20px; /* Padding around the text */
 }
 
 .overlay-button{
@@ -120,7 +120,7 @@ header{
 
 .index-about img{
     max-width: 90%;
-    flex-basis: 50%;
+    flex-basis: 40%;
     box-sizing: border-box;
     object-fit: contain; /* Prevent stretching */
     flex-grow: 1;
@@ -136,6 +136,7 @@ header{
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    gap: 10px;
 }
 
 .index-about-title{
@@ -168,10 +169,6 @@ header{
     transition: background-color 0.3s ease; /* Smooth transition effect */
     flex-direction: column;
 }
-
-/* ul{
-    list-style-type: none;
-} */
 
 /*---------------------------------------- Shop Page ----------------------------------------*/
 .shop-container{
@@ -221,10 +218,11 @@ header{
     flex-wrap: wrap;
     margin: 10px;
     gap: 20px;
+    padding: 50px;
     padding-bottom: 100px;
-
 }
-.product-details button {
+
+.product-details button{
     position: relative;
     padding: 10px 20px;
     font-size: 1rem;
@@ -233,6 +231,7 @@ header{
     color:white;
     background-color:rgba(158, 173, 123, 1);
 }
+
 .product-details{
     max-width: 80%;
     color: black;
@@ -242,6 +241,7 @@ header{
     justify-content: center;
     
 }
+
 .product-image{
     max-width: 50%;
     flex-basis: 35%;
@@ -250,32 +250,34 @@ header{
     margin: 20px;
     padding-right: 50px;
 }
-@media screen and (max-width: 768px) { /* You can adjust 768px to any breakpoint you want */
-    .product-page {
+
+@media screen and (max-width: 768px){ /* You can adjust 768px to any breakpoint you want */
+    .product-page{
         flex-direction: column; /* Stack items vertically on smaller screens */
         align-items: center; /* Optional: center items horizontally */
     }
 
-    .product-details, .product-image {
+    .product-details, .product-image{
         flex-basis: 90%; /* On small screens, each will take up 90% of the width */
         margin: 20px;
         padding: 0;
     }
 }
-.quantity {
+
+.quantity{
     display: flex;
     align-items: center;
     width: fit-content;
     border: #333;
 }
 
-.counter {
+.counter{
     width: 35px;
     border: transparent;
     color: black;
 }
 
-.quantity button {
+.quantity button{
     padding: 5px 10px;
     border: 2px rgba(158, 173, 123, 1);
     cursor: pointer;
@@ -327,27 +329,16 @@ header{
     margin: auto;
 }
 
-/* .account .account-signin,.account .account-signup{
-    width: 100%;
-    padding: 40px;
-}
-*/
-
- .account-page {
+.account-page{
     padding: 10%;
     display: none;
     transition: transform.18s ease;
-    content:"";
+    content: "";
 }
 
 .account-page.active{
-    display:block;
+    display: block;
 }
-/* .account-page .account-signup{
-    position: absolute;
-    transition: none;
-    transform: translateX(400px);
-}  */
 
 .account-page .account-signin{
     transition: none;
@@ -357,7 +348,6 @@ header{
 .account-signin h2, .account-signup h2{
     font-size: 2em;
     color: rgba(158, 173, 123, 1);
-    text-align: center;
 }
 
 .signin-input, .signup-input{
@@ -368,19 +358,21 @@ header{
     margin: 30px 0;
 }
 
-.signin-input label, .signin-input label{
+.signin-input label, .signup-input label{
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     font-size: 1em;
     color: black;
     font-weight: 500;
-    /*pointer-events: none;*/
     transition: .5s;
 }
 
-.signin-input input:focus~label,
-.signin-input input:valid~label, .signin-input input:valid~label {
+.signin-input input:focus~label, .signin-input input:valid~label{
+    top: -5px;
+}
+
+.signup-input input:focus~label, .signup-input input:valid~label{
     top: -5px;
 }
 
@@ -393,7 +385,6 @@ header{
     font-size: 1em;
     color: black;
     font-weight: 600;
-    /* padding: 0 35px 0 35px; */
 }
 
 .signin-input .icon, .signup-input .icon{
@@ -407,7 +398,7 @@ header{
 .account-button{
     width: 100%;
     height: 45px;
-    background: rgba(158, 173, 123, 1);
+    background: black;
     border: none;
     outline: none;
     border-radius: 6px;
@@ -441,17 +432,20 @@ header{
     flex-direction: row;
     flex-wrap: wrap;
 }
+
 .cart-title{
     color: rgba(158, 173, 123, 1);
     font-size: 25px;
     text-align: center;
 }
+
 .cart-summary{
     flex-basis: 20%;
     flex-grow: 2;
     align-items: left;
 }
-.cartAmount{
+
+.cart-amount{
     position: absolute;
     top: 20px;
     right: 10px;
@@ -459,62 +453,66 @@ header{
     background-color: red;
     color: white;
     padding: 3px;
-    border-radius: 3px;
-    
-    
+    border-radius: 3px;  
 }
-.cartAmount.empty{
+
+.cart-amount.empty{
     display: none;
 }
 
-.cart-items {
+.cart-items{
     max-width: 100%;
     display: flex;
     flex-direction: column;
     flex-basis: 70%;
     flex-grow: 3;
-    
 }
+
 .pay{
     justify-content: center;
 }
-.cart-item {
+
+.cart-item{
     display: flex;
     align-items: center;
     border-bottom: 1px solid #ddd;
     padding: 40px;
 }
   
-.cart-item img {
+.cart-item img{
     width: 150px;
     height: 150px;
     object-fit: cover; /* Ensures the image covers the container */
 }
   
-.item-details {
+.item-details{
     flex: 1; 
     color:rgba(158, 173, 123, 1);
     padding: 20px;
 }
+
+.item-details span{
+    flex-wrap: nowrap;
+}
+
 .empty{
     color: black;
     text-align: centers;
 }
-  
 
 .item-quantity{
     width: 25px;
     border: transparent;
 }
 
-.quantity button {
+.quantity button{
     padding: 5px 10px;
     border: 2px rgba(158, 173, 123, 1);
     cursor: pointer;
     border-radius: 5px;
 }
   
-.cart-item button {
+.cart-item button{
     color:rgba(158, 173, 123, 1);
     background-color: transparent;
     font-size: 2em;
@@ -522,7 +520,7 @@ header{
     cursor: pointer;
 }
   
-.cart-summary {
+.cart-summary{
     margin-top: 20px;
     text-align: center;
     justify-content: center;
@@ -533,12 +531,13 @@ header{
     border: 1px solid rgba(158, 173, 123, 1);
 }
 
-.cart-summary span {
+.cart-summary span{
     position: relative;
+    font-size: 20px;
     color:rgba(158, 173, 123, 1);
 }
   
-.cart-summary button {
+.cart-summary button{
     position: relative;
     padding: 10px 20px;
     font-size: 1rem;
@@ -546,23 +545,23 @@ header{
     border-radius: 5px;
     color: white;
     background-color:rgba(158, 173, 123, 1);
+    top: 15px;
 }
 
 @media (max-width: 900px){
-    .flex-item {
+    .flex-item{
         flex-basis: 48%;
     }
 
-    .cart-items {
+    .cart-items{
         flex-direction: row;
         flex-wrap: wrap;
     }
 
-    .cart-item {
-    width: 50%;
-    border: none;
+    .cart-item{
+        width: 50%;
+        border: none;
     }
-
 }
 
 footer{
@@ -570,8 +569,9 @@ footer{
     padding: 20px;
     text-align: center;
 }
+
 section{
-    padding-bottom: 20rem;
+    padding-bottom: 1rem;
 }
 
 /*---------------------------------------- Payment Page ----------------------------------------*/
@@ -581,7 +581,7 @@ h1{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.payment-container {
+.payment-container{
     display: flex;
     max-width: 1200px;
     margin: 0 auto;
@@ -589,7 +589,7 @@ h1{
     flex-wrap: wrap-reverse;
 }
   
-.form-section {
+.form-section{
     flex: 2;
     padding: 20px;
     color: black;
@@ -600,7 +600,7 @@ h1{
     flex-basis: 50%;
 }
 
-.summary-section {
+.summary-section{
     flex: 1;
     color: black;
     padding: 20px;
@@ -609,40 +609,40 @@ h1{
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
   
-.form-section h2 {
+.form-section h2{
     margin-bottom: 10px;
     color: #333;
 }
 
-.form-section p {
+.form-section p{
     color: gray;
 }
   
-.form-input {
+.form-input{
     margin-bottom: 15px;
 }
   
-label {
+label{
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
 }
   
-input {
+input{
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
   
-.input-flex {
+.input-flex{
     display: flex;
     flex-direction: row;
     gap: 10px;
     flex-wrap: wrap;
 }
   
-button.pay-button {
+button.pay-button{
     width: 100%;
     padding: 15px;
     background-color: rgba(158, 173, 123, 1);
@@ -651,36 +651,39 @@ button.pay-button {
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
+    font-size: 25px;
 }
   
-button.pay-button:hover {
+button.pay-button:hover{
     background-color: rgba(158, 173, 123, 1);
 }
   
-.return-link {
+.return-link{
     display: block;
+    font-size: 20px;
     margin-top: 10px;
     text-align: center;
     color: #6ca24a;
     text-decoration: none;
 }
   
-.summary-item {
+.summary-item{
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 15px;
 }
   
-.summary-item img {
+.summary-item img{
     width: 50px;
     height: 50px;
     object-fit: cover;
     border-radius: 5px;
 }
   
-.total {
+.total{
     font-weight: bold;
+    font-size: 25px;
     text-align: right;
     margin-top: 10px;
 }
@@ -699,9 +702,11 @@ button.pay-button:hover {
     text-align: center;
     z-index: 10;
 }
+
 .imgcon{
     position: relative  ;
 }
+
 .summary-section .item-details{
     color:black;
 }

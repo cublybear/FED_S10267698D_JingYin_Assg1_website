@@ -84,95 +84,105 @@
             </div>
         </div>
     </div>
+
     <script>
-    function set(){
-    localStorage.setItem("cart",JSON.stringify([]))
-    }
-    function calculateTotal(cart) {
-    let totalCost = 0;
+        // Function to reset the cart in localStorage to an empty array
+        function set(){
+            localStorage.setItem("cart",JSON.stringify([]));
+        }
 
-    // Iterate through each item in the cart
-    cart.forEach(item => {
-        let x =item.price.split(" ")
-        price=x[0].replace("$","")
-        totalCost += item.quantity * parseInt(price); // Multiply quantity by price and add to total
-    });
+        // Function to calculate the total cost of the items in the cart
+        function calculateTotal(cart){
+            let totalCost = 0;
 
-    return totalCost;
-}
-const cartContainer = document.querySelector('.cart-items');
-function createsummaryItems(items) {
-    // Loop through the items array
-    if(cart.length != 0){
-    items.forEach(item => {
-        // Create the outer cart-item div
-        const cartItem = document.createElement('div');
-        cartItem.classList.add('cart-item');
-        const itemImgcon = document.createElement('div')
-        itemImgcon.classList.add("imgcon")
-        // Create the item image
-        const itemImg = document.createElement('img');
-        itemImg.src = `Item ${item.id}.png`; // Assuming image file names are based on the id
-        itemImg.alt = item.id;
-        //create the weird thing
-        const number = document.createElement('div')
-        number.classList.add("payment-quantity")
-        number.textContent = item.quantity
-        // Create the item details container
-        const itemDetails = document.createElement('div');
-        itemDetails.classList.add('item-details');
+            // Iterate through each item in the cart
+            cart.forEach(item => {
+                let x = item.price.split(" ");
+                price = x[0].replace("$","");
+                totalCost += item.quantity * parseInt(price); // Multiply quantity by price and add to total
+            });
 
-        // Create and set the item name (h3)
-        const itemName = document.createElement('h3');
-        itemName.textContent = item.name;
+            return totalCost;
+        }
+        
+        // Select the container where the cart items will be displayed
+        const cartContainer = document.querySelector('.cart-items');
 
-        // Create and set the price span
-        const itemPrice = document.createElement('span');
-        itemPrice.classList.add('cart-price');
-        itemPrice.textContent = item.price; // Set the price here (you may want to adjust this based on the item)
+        // Function to create and display cart items in the cart summar
+        function createsummaryItems(items){
+            // Check if there are items in the cart
+            if(cart.length != 0){
+                // Loop through the items array and create HTML elements for each item
+                items.forEach(item => {
+                    // Create the outer cart-item div
+                    const cartItem = document.createElement('div');
+                    cartItem.classList.add('cart-item');
 
-        // Create the quantity controls
-        const quantityContainer = document.createElement('div');
-        quantityContainer.classList.add('quantity');
+                    // Create a container for the item image
+                    const itemImgcon = document.createElement('div');
+                    itemImgcon.classList.add("imgcon");
 
+                    // Create the item image
+                    const itemImg = document.createElement('img');
+                    itemImg.src = `Item ${item.id}.png`; // Assuming image file names are based on the id
+                    itemImg.alt = item.id;
 
+                    // Create a div to display the quantity of the item
+                    const number = document.createElement('div');
+                    number.classList.add("payment-quantity");
+                    number.textContent = item.quantity;
 
+                    // Create the item details container
+                    const itemDetails = document.createElement('div');
+                    itemDetails.classList.add('item-details');
 
+                    // Create and set the item name (h3)
+                    const itemName = document.createElement('h3');
+                    itemName.textContent = item.name;
 
+                    // Create and set the price span
+                    const itemPrice = document.createElement('span');
+                    itemPrice.classList.add('cart-price');
+                    itemPrice.textContent = item.price; // Set the price here (adjusted based on the item)
 
-        // Append the image, name, price, and quantity controls to itemDetails
-        itemDetails.appendChild(itemName);
-        itemDetails.appendChild(itemPrice);
-        itemDetails.appendChild(quantityContainer);
-        itemImgcon.appendChild(number)
-        itemImgcon.appendChild(itemImg)
+                    // Create the quantity controls
+                    const quantityContainer = document.createElement('div');
+                    quantityContainer.classList.add('quantity');
 
-        // Create the remove button
+                    // Append the image, name, price, and quantity controls to itemDetails
+                    itemDetails.appendChild(itemName);
+                    itemDetails.appendChild(itemPrice);
+                    itemDetails.appendChild(quantityContainer);
+                    itemImgcon.appendChild(number);
+                    itemImgcon.appendChild(itemImg);
 
-        // Append the item details and remove button to the cart item
-        cartItem.appendChild(itemImgcon);
-        cartItem.appendChild(itemDetails);
+                    // Create the remove button
 
-        // Append the cart item to the parent container
-        cartContainer.appendChild(cartItem);
-    });
-}
-else{
-    const cartItem = document.createElement('div');
-    
-    cartItem.textContent = "You have an empty cart.";
-    cartItem.classList.add('empty');
-    cartContainer.appendChild(cartItem);
-}
-}
+                    // Append the item details and remove button to the cart item
+                    cartItem.appendChild(itemImgcon);
+                    cartItem.appendChild(itemDetails);
 
-    function updateCost(cart){
-        let total = calculateTotal(cart)
-        document.getElementById("total").textContent = `Total: $${total.toFixed(2)} SGD`
-    }
-    cart = JSON.parse(localStorage.getItem("cart"))
-    updateCost(cart)
-    createsummaryItems(cart)
+                    // Append the cart item to the parent container
+                    cartContainer.appendChild(cartItem);
+                });
+            }
+            else{
+                const cartItem = document.createElement('div');
+                cartItem.textContent = "You have an empty cart.";
+                cartItem.classList.add('empty');
+                cartContainer.appendChild(cartItem);
+            }
+        }
+        
+        function updateCost(cart){
+            let total = calculateTotal(cart);
+            document.getElementById("total").textContent = `Total: $${total.toFixed(2)} SGD`;
+        }
+        
+        // Retrieve the cart from localStorage
+        cart = JSON.parse(localStorage.getItem("cart"));
+        updateCost(cart);
+        createsummaryItems(cart);
     </script>
 </body>
 </html>

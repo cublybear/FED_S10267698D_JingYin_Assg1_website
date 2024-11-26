@@ -11,126 +11,139 @@
     <script src="https://kit.fontawesome.com/fcf58dc318.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<header>
-    <div class="navbar">
-        <div class="navbar-left">
-            <div>SOAP</div>
+    <header>
+        <div class="navbar">
+            <div class="navbar-left">
+                <div>SOAP</div>
+            </div>
+            <div class="navbar-center">
+                <a href="index.html"><div>HOME</div></a>
+                <a href="shop.html"><div>SHOP</div></a>
+                <a href="about.html"><div>ABOUT</div></a>
+            </div>
+            <div class="navbar-right">
+                <a href="account.html">
+                    <i class="fas fa-user"></i>
+                </a>
+                <a href="cart.html">
+                    <i class="fas fa-cart-shopping"></i>
+                    <div class="cart-amount" id="cart-icon">0</div>
+                </a>
+            </div>
         </div>
-        <div class="navbar-center">
-            <a href="index.html"><div>HOME</div></a>
-            <a href="shop.html"><div>SHOP</div></a>
-            <a href="about.html"><div>ABOUT</div></a>
-        </div>
-        <div class="navbar-right">
-            <a href="account.html">
-                <i class="fas fa-user"></i>
-            </a>
-            <a href="cart.html">
-                <i class="fas fa-cart-shopping"></i>
-                <div class="cartAmount" id="cart-icon">0</div>
-            </a>
-        </div>
-    </div>
-</header>
-<section class="showcase">
-    <img src="Shop Image.png">
-</section>
-<section class="shop-container">
-    <a href="account.html" onclick="changetab('item1')" class="item1-link"></a>
-    <div class="flex-item" id="1">
+    </header>
+    <section class="showcase">
+        <img src="Shop Image.png">
+    </section>
+    <section class="shop-container">
+        <a href="account.html" onclick="changetab('item1')" class="item1-link"></a>
+        <div class="flex-item" id="1">
+                <div class="flex-img">
+                    <img src="Item 1.png">
+                </div>
+                <div class="flex-info">
+                    <h4>FLORIST SOAP</h4>
+                    <p>$13.00 SGD</p>
+                </div>
+            </div>
+        <div class="flex-item" id="2">
             <div class="flex-img">
-                <img src="Item 1.png">
+                <img src="Item 2.png">
             </div>
             <div class="flex-info">
-                <h4>FLORIST SOAP</h4>
+                <h4>CHAI</h4>
                 <p>$13.00 SGD</p>
             </div>
         </div>
-    <div class="flex-item" id="2">
-        <div class="flex-img">
-            <img src="Item 2.png">
+        <div class="flex-item" id="3">
+            <div class="flex-img">
+                <img src="Item 3.png">
+            </div>
+            <div class="flex-info" >
+                <h4>FROSTED</h4>
+                <p>$13.00 SGD</p>
+            </div>
         </div>
-        <div class="flex-info">
-            <h4>CHAI</h4>
-            <p>$13.00 SGD</p>
+        <div class="flex-item" id="4">
+            <div class="flex-img">
+                <img src="Item 4.png">
+            </div>
+            <div class="flex-info">
+                <h4>WOODLAND</h4>
+                <p>$13.00 SGD</p>
+            </div>
         </div>
-	</div>
-    <div class="flex-item" id="3">
-        <div class="flex-img">
-            <img src="Item 3.png">
+        <div class="flex-item" id="5">
+            <div class="flex-img">
+                <img src="Item 5.png">
+            </div>
+            <div class="flex-info">
+                <h4>PINE DOUGH</h4>
+                <p>$13.00 SGD</p>
+            </div>
         </div>
-        <div class="flex-info" >
-            <h4>FROSTED</h4>
-            <p>$13.00 SGD</p>
+        <div class="flex-item" id="6">
+            <div class="flex-img">
+                <img src="Item 6.png">
+            </div>
+            <div class="flex-info">
+                <h4>SIMPLY</h4>
+                <p>$11.00 SGD</p>
+            </div>
         </div>
-	</div>
-    <div class="flex-item" id="4">
-        <div class="flex-img">
-            <img src="Item 4.png">
-        </div>
-        <div class="flex-info">
-            <h4>WOODLAND</h4>
-            <p>$13.00 SGD</p>
-        </div>
-	</div>
-    <div class="flex-item" id="5">
-        <div class="flex-img">
-            <img src="Item 5.png">
-        </div>
-        <div class="flex-info">
-            <h4>PINE DOUGH</h4>
-            <p>$13.00 SGD</p>
-        </div>
-	</div>
-    <div class="flex-item" id="6">
-        <div class="flex-img">
-            <img src="Item 6.png">
-        </div>
-        <div class="flex-info">
-            <h4>SIMPLY</h4>
-            <p>$11.00 SGD</p>
-        </div>
-	</div>
-</section>
-<footer>
-    <p>© 2024 Soap Singapore</p>
-    <i class="fa-brands fa-facebook-f"></i>
-    <i class="fa-brands fa-instagram"></i>
-    <i class="fa-brands fa-x-twitter"></i>
-</footer>
-<script>
-    // Select all the items
-    const items = document.querySelectorAll('.flex-item');
+    </section>
+    <footer>
+        <p>© 2024 Soap Singapore</p>
+        <a href = "https://www.facebook.com/">
+            <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <a href = "https://www.instagram.com/">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href = "https://x.com/"></a>
+            <i class="fa-brands fa-x-twitter"></i>
+        </a>
+    </footer>
+    <script>
+        // Select all the items on the page
+        const items = document.querySelectorAll('.flex-item');
 
-    // Add event listener to each item
-    items.forEach(item => {
-        item.addEventListener('click', function() {
-            // Get the ID of the clicked item
-            const productId = item.id;
+        // Add event listener to each item
+        items.forEach(item => {
+            item.addEventListener('click', function(){
+                // Get the ID of the clicked item (this ID will be used to identify the product)
+                const productId = item.id;
 
-            // Create the URL by appending the product ID
-            const newUrl = `product.html?id=${productId}`;
+                // Create the URL by appending the product ID as a query parameter
+                const newUrl = `product.html?id=${productId}`;
 
-            // Redirect the user to the new page
-            window.location.href = newUrl;
+                // Redirect the user to the new page (product.html)
+                window.location.href = newUrl;
+            });
         });
-    });
-    cart = JSON.parse(localStorage.getItem("cart"))
-    function totalquantity(cart){
-    let total = 0
-    for (let i = 0; i < cart.length; i++) {
-        total += cart[i].quantity;  // Increase quantity if the item already exists
-    }
-    let icon = document.getElementById("cart-icon")
-    icon.textContent = total
-    if (!total){
-        icon.classList.add('empty');
-    }
-    else{
-        icon.classList = "cartAmount"
-    }
-    }   
-    totalquantity(cart)
-</script>
+
+        // Retrieve the cart data from localStorage (assume an array of cart items)
+        cart = JSON.parse(localStorage.getItem("cart"));
+
+        // Function to calculate and update the total quantity of items in the cart
+        function totalquantity(cart){
+            let total = 0;
+            for (let i = 0; i < cart.length; i++){
+                total += cart[i].quantity; // Increase quantity if the item already exists
+            }
+
+            let icon = document.getElementById("cart-icon");
+            // Set the text content of the cart icon to show the total quantity
+            icon.textContent = total;
+            if (!total){
+                icon.classList.add('empty');
+            }
+            else{
+                icon.classList = "cart-amount"
+            }
+        }
+        
+        totalquantity(cart);
+    </script>
 </body>
 </html>

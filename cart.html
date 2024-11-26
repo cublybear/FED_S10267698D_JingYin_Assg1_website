@@ -26,221 +26,234 @@
                 </a>
                 <a href="cart.html">
                     <i class="fas fa-cart-shopping"></i>
-                    <div class="cartAmount" id="cart-icon">0</div>
+                    <div class="cart-amount" id="cart-icon">0</div>
                 </a>
             </div>
         </div>
     </header>
     <section>
-       
         <div class="cart-title">
-                <h2>SHOPPING CART</h2>
-            </div>
+            <h2>SHOPPING CART</h2>
+        </div>
         <div class="cart">
-            <div class="cart-items">
-            </div>
+            <div class="cart-items"></div>
             <div class="cart-summary">
                 <span class="cart-total" id="total">Total: $0.00 SGD</span>
-                <a class="pay" onclick="checkout()"><div><button >Checkout</button></div></a>
+                <a class="pay" onclick="checkout()"><div><button>Checkout</button></div></a>
             </div>
+        </div>
     </section>
     <footer>
         <p>© 2024 Soap Singapore</p>
-        <i class="fa-brands fa-facebook-f"></i>
-        <i class="fa-brands fa-instagram"></i>
-        <i class="fa-brands fa-x-twitter"></i>
+        <a href = "https://www.facebook.com/">
+            <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <a href = "https://www.instagram.com/">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href = "https://x.com/"></a>
+            <i class="fa-brands fa-x-twitter"></i>
+        </a>
     </footer>
     <script>
-        // Your array of items
-// The parent container where cart items will be added
-const cartContainer = document.querySelector('.cart-items');
+        // Select the parent container where the cart items will be added
+        const cartContainer = document.querySelector('.cart-items');
 
-// Function to create and append cart items
-function createCartItems(items) {
-    // Loop through the items array
-    if(cart.length != 0){
-    items.forEach(item => {
-        // Create the outer cart-item div
-        const cartItem = document.createElement('div');
-        cartItem.classList.add('cart-item');
+        // Function to create and append cart items based on the items array
+        function createCartItems(items){
+            // Loop through the items array
+            if(cart.length != 0){
+                items.forEach(item =>{
+                    // Create the outer cart-item div
+                    const cartItem = document.createElement('div');
+                    cartItem.classList.add('cart-item');
 
-        // Create the item image
-        const itemImg = document.createElement('img');
-        itemImg.src = `Item ${item.id}.png`; // Assuming image file names are based on the id
-        itemImg.alt = item.id;
+                    // Create the item image element
+                    const itemImg = document.createElement('img');
+                    itemImg.src = `Item ${item.id}.png`; // Assuming image file names are based on the id
+                    itemImg.alt = item.id;
 
-        // Create the item details container
-        const itemDetails = document.createElement('div');
-        itemDetails.classList.add('item-details');
+                    // Create the item details container
+                    const itemDetails = document.createElement('div');
+                    itemDetails.classList.add('item-details');
 
-        // Create and set the item name (h3)
-        const itemName = document.createElement('h3');
-        itemName.textContent = item.name;
+                    // Create and set the item name (h3)
+                    const itemName = document.createElement('h3');
+                    itemName.textContent = item.name;
 
-        // Create and set the price span
-        const itemPrice = document.createElement('span');
-        itemPrice.classList.add('cart-price');
-        itemPrice.textContent = item.price; // Set the price here (you may want to adjust this based on the item)
+                    // Create and set the price span
+                    const itemPrice = document.createElement('span');
+                    itemPrice.classList.add('cart-price');
+                    itemPrice.textContent = item.price; // Set the price here
 
-        // Create the quantity controls
-        const quantityContainer = document.createElement('div');
-        quantityContainer.classList.add('quantity');
+                    // Create the quantity controls
+                    const quantityContainer = document.createElement('div');
+                    quantityContainer.classList.add('quantity');
 
-        // Create the decrease button
-        const decreaseButton = document.createElement('button');
-        decreaseButton.textContent = '-';
-        decreaseButton.addEventListener('click', () => updateQuantity(item, -1)); // Update quantity on click
+                    // Create the decrease button
+                    const decreaseButton = document.createElement('button');
+                    decreaseButton.textContent = '-';
+                    decreaseButton.addEventListener('click', () => updateQuantity(item, -1)); // Update quantity on click
 
-        // Create the quantity input or span
-        const quantityInput = document.createElement('input');
-        quantityInput.classList.add('item-quantity');
-        quantityInput.type = 'text';
-        quantityInput.value = item.quantity; // Set initial quantity
-        quantityInput.id = `quantity-${item.id}`;
+                    // Create the input field to display the current quantity
+                    const quantityInput = document.createElement('input');
+                    quantityInput.classList.add('item-quantity');
+                    quantityInput.type = 'text';
+                    quantityInput.value = item.quantity; // Set initial quantity
+                    quantityInput.id = `quantity-${item.id}`;
 
-        // Create the increase button
-        const increaseButton = document.createElement('button');
-        increaseButton.textContent = '+';
-        increaseButton.addEventListener('click', () => updateQuantity(item, 1)); // Update quantity on click
+                    // Create the increase button
+                    const increaseButton = document.createElement('button');
+                    increaseButton.textContent = '+';
+                    increaseButton.addEventListener('click', () => updateQuantity(item, 1)); // Update quantity on click
 
-        // Append buttons and input to quantity container
-        quantityContainer.appendChild(decreaseButton);
-        quantityContainer.appendChild(quantityInput);
-        quantityContainer.appendChild(increaseButton);
+                    // Append buttons and input to quantity container
+                    quantityContainer.appendChild(decreaseButton);
+                    quantityContainer.appendChild(quantityInput);
+                    quantityContainer.appendChild(increaseButton);
 
-        // Append the image, name, price, and quantity controls to itemDetails
-        itemDetails.appendChild(itemName);
-        itemDetails.appendChild(itemPrice);
-        itemDetails.appendChild(quantityContainer);
+                    // Append the image, name, price and quantity controls to itemDetails
+                    itemDetails.appendChild(itemName);
+                    itemDetails.appendChild(itemPrice);
+                    itemDetails.appendChild(quantityContainer);
 
-        // Create the remove button
-        const removeButton = document.createElement('button');
-        removeButton.classList.add('remove');
-        removeButton.textContent = '×';
-        removeButton.addEventListener('click', () => removeCartItem(item.id));
+                    // Create the remove button
+                    const removeButton = document.createElement('button');
+                    removeButton.classList.add('remove');
+                    removeButton.textContent = '×';
+                    removeButton.addEventListener('click', () => removeCartItem(item.id));
 
-        // Append the item details and remove button to the cart item
-        cartItem.appendChild(itemImg);
-        cartItem.appendChild(itemDetails);
-        cartItem.appendChild(removeButton);
-        console.log(cartItem)
-        // Append the cart item to the parent container
-        cartContainer.appendChild(cartItem);
-    });
-}
-else{
-    const cartItem = document.createElement('div');
-    
-    cartItem.textContent = "You have an empty cart.";
-    cartItem.classList.add('empty');
-    cartContainer.appendChild(cartItem);
-}
-}
+                    // Append the item details and remove button to the cart item
+                    cartItem.appendChild(itemImg);
+                    cartItem.appendChild(itemDetails);
+                    cartItem.appendChild(removeButton);
+                    console.log(cartItem);
 
-// Function to update quantity (increase or decrease)
-function updateQuantity(item, change) {
-    item.quantity += change;
-    const quantityInput = document.getElementById(`quantity-${item.id}`);
-    quantityInput.value = item.quantity; // Update the displayed quantity
-    if(item.quantity === 0){
-        removeCartItem(item.id)
-    }
-    else{
-    updatecart(item,item.quantity)
-    }
-    updateCost(cart)
-    totalquantity(cart)
-}
-function removeItemFromCart(productId) {
-    // Find index of the product to remove
-    const indexToRemove = cart.findIndex(item => item.id === productId);
-    if (indexToRemove !== -1) {
-        // Remove the item
-        cart.splice(indexToRemove, 1);
-        console.log(`Item with ID ${productId} has been removed from the cart.`);
-        localStorage.setItem("cart", JSON.stringify(cart))
-    } else {
-        console.log('Item not found in the cart.');
-    }
-    updateCost(cart)
-    totalquantity(cart)
-}
-// Function to remove the item from the cart (this is just a simulation)
-function removeCartItem(itemId) {
-    // Here you can remove the item from your cart array or localStorage
-    removeItemFromCart(itemId)
-    
-    // You may want to update the DOM by removing the cart item element
-    const itemElement = document.querySelector(`.cart-item img[alt='${itemId}']`).parentElement;
-    itemElement.remove();
-    if(cart.length === 0){
-        const cartItem = document.createElement('div');
-    
-    cartItem.textContent = "You have an empty cart.";
-    cartItem.classList.add('empty');
-    cartContainer.appendChild(cartItem);
-    }
-}
-
-function calculateTotal(cart) {
-    let totalCost = 0;
-
-    // Iterate through each item in the cart
-    cart.forEach(item => {
-        let x =item.price.split(" ")
-        price=x[0].replace("$","")
-        totalCost += item.quantity * parseInt(price); // Multiply quantity by price and add to total
-    });
-
-    return totalCost;
-}
-function updatecart(item,quantity){
-        for (let i = 0; i < cart.length; i++) {
-        if (cart[i].id === item.id) {
-            cart[i].quantity = quantity;  // Increase quantity if the item already exists
-            break;  // Exit the loop once we find the item
+                    // Append the cart item to the parent container
+                    cartContainer.appendChild(cartItem);
+                });
+            }
+            else{
+                // If the cart is empty, display a message indicating the empty cart
+                const cartItem = document.createElement('div');
+                cartItem.textContent = "You have an empty cart.";
+                cartItem.classList.add('empty');
+                cartContainer.appendChild(cartItem);
+            }
         }
-    }
-        console.log(cart);
-        localStorage.setItem("cart",JSON.stringify(cart))
 
-    }
-function updateCost(cart){
-    let total = calculateTotal(cart)
-    document.getElementById("total").textContent = `Total:$${total.toFixed(2)} SGD`
-}
-function totalquantity(cart){
-    let total = 0
-    for (let i = 0; i < cart.length; i++) {
-        total += cart[i].quantity;  // Increase quantity if the item already exists
-    }
-    let icon = document.getElementById("cart-icon")
-    icon.textContent = total
-    if (!total){
-        icon.classList.add('empty');
-    }
-    else{
-        icon.classList = "cartAmount"
-    }
+        // Function to update quantity (increase or decrease)
+        function updateQuantity(item, change){
+            item.quantity += change;
+            const quantityInput = document.getElementById(`quantity-${item.id}`); // Get the input element for the item
+            quantityInput.value = item.quantity; // Update the displayed quantity
+            if(item.quantity === 0){
+                removeCartItem(item.id);
+            }
+            else{
+                updatecart(item, item.quantity);
+            }
+            updateCost(cart);
+            totalquantity(cart);
+        }
+        
+        // Function to remove an item from the cart by its ID
+        function removeItemFromCart(productId){
+            // Find index of the item to remove
+            const indexToRemove = cart.findIndex(item => item.id === productId);
+            if (indexToRemove !== -1){
+                // Remove the item
+                cart.splice(indexToRemove, 1); // Remove the item from the cart
+                console.log(`Item with ID ${productId} has been removed from the cart.`);
+                localStorage.setItem("cart", JSON.stringify(cart)); // Update localStorage with the modified cart
+            }
+            else{
+                console.log('Item not found in the cart.');
+            }
+            updateCost(cart);
+            totalquantity(cart);
+        }
 
-    
-    
-}
-function checkout(){
-    if(cart.length==0){
-        alert("You have an empty cart.")
-    }
-    else{
-    window.location.href = "payment.html";
-    }
- }
-// Initialize the cart
-cart = JSON.parse(localStorage.getItem("cart"))
-console.log(cart)
-createCartItems(cart);
-updateCost(cart);
-totalquantity(cart);
+        // Function to simulate the removal of a cart item from both the cart array and the DOM
+        function removeCartItem(itemId){
+            // Remove item from the cart array or localStorage
+            removeItemFromCart(itemId);
+            
+            // Remove the corresponding item from the DOM
+            const itemElement = document.querySelector(`.cart-item img[alt='${itemId}']`).parentElement;
+            itemElement.remove();
+            // If the cart is empty, display a message indicating the empty cart
+            if(cart.length === 0){
+                const cartItem = document.createElement('div');
+                cartItem.textContent = "You have an empty cart.";
+                cartItem.classList.add('empty');
+                cartContainer.appendChild(cartItem);
+            }
+        }
 
-</script>
+
+        // Function to calculate the total cost of all items in the cart
+        function calculateTotal(cart){
+            let totalCost = 0;
+            // Iterate through each item in the cart
+            cart.forEach(item => {
+                let x = item.price.split(" "); // Split price to extract numeric value
+                price = x[0].replace("$","");
+                totalCost += item.quantity * parseInt(price); // Multiply quantity by price and add to total cost
+            });
+            return totalCost;
+        }
+
+        // Function to update the cart with the new quantity for a specific item
+        function updatecart(item, quantity){
+            for (let i = 0; i < cart.length; i++){
+                if (cart[i].id === item.id){
+                    cart[i].quantity = quantity; // Increase quantity if the item already exists
+                    break; // Exit the loop once the item is found and updated
+                }
+            }
+            console.log(cart);
+            localStorage.setItem("cart",JSON.stringify(cart)); // Save the updated cart to localStorage
+        }
+        
+        // Function to update the total cost displayed in the cart
+        function updateCost(cart){
+            let total = calculateTotal(cart);
+            document.getElementById("total").textContent = `Total:$${total.toFixed(2)} SGD`;
+        }
+
+        // Function to update the total quantity of items in the cart and update the cart icon
+        function totalquantity(cart){
+            let total = 0;
+            for (let i = 0; i < cart.length; i++){
+                total += cart[i].quantity; // Increase quantity if the item already exists
+            }
+            let icon = document.getElementById("cart-icon");
+            icon.textContent = total;
+            if (!total){
+                icon.classList.add('empty');
+            }
+            else {
+                icon.classList = "cart-amount";
+            }  
+        }
+
+        // Function to handle checkout process
+        function checkout(){
+            if(cart.length==0){
+                alert("You have an empty cart.");
+            }
+            else{
+                window.location.href = "payment.html";
+            }
+        }
+
+        // Initialize the cart by retrieving it from localStorage
+        cart = JSON.parse(localStorage.getItem("cart"));
+        console.log(cart); // Log the cart for debugging
+        createCartItems(cart); // Create the cart items in the DOM
+        updateCost(cart); // Update the total cost
+        totalquantity(cart); // Update the total quantity in the cart icon
+    </script>
 </body>
 </html>
