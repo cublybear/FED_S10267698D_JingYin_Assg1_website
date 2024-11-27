@@ -70,8 +70,8 @@
                         <input type="text" id="postal-code" name="postal-code" pattern="\d{5,6}" required>
                     </div>
                 </div>
-                <button type="submit" class="pay-button" onclick="set()">Pay</button>
-                <a href="cart.html" class="return-link">&lt; Return to Cart</a>
+                <button type="submit" class="pay-button" id="payment" onclick="set()">Pay</button>
+                <a href="cart.html" class="return-link">&lt; Return to Cart</a> 
             </form>
         </div>
 
@@ -84,7 +84,6 @@
             </div>
         </div>
     </div>
-
     <script>
         // Function to reset the cart in localStorage to an empty array
         function set(){
@@ -124,7 +123,7 @@
 
                     // Create the item image
                     const itemImg = document.createElement('img');
-                    itemImg.src = `Images/Item ${item.id}.png`; // Assuming image file names are based on the id
+                    itemImg.src = `Images/Item${item.id}.png`; // Assuming image file names are based on the id
                     itemImg.alt = item.id;
 
                     // Create a div to display the quantity of the item
@@ -183,6 +182,11 @@
         cart = JSON.parse(localStorage.getItem("cart"));
         updateCost(cart);
         createsummaryItems(cart);
+
+        document.getElementById('payment').addEventListener('click', function() {
+            // Redirect to a new HTML page
+            window.location.href = 'complete.html';  // Replace with your target HTML file
+        });
     </script>
 </body>
 </html>

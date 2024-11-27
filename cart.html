@@ -77,7 +77,7 @@
 
                     // Create the item image element
                     const itemImg = document.createElement('img');
-                    itemImg.src = `Images/Item ${item.id}.png`; // Assuming image file names are based on the id
+                    itemImg.src = `Images/Item${item.id}.png`; // Assuming image file names are based on the id
                     itemImg.alt = item.id;
 
                     // Create the item details container
@@ -175,6 +175,7 @@
             updateCost(cart);
             totalquantity(cart);
         }
+
         function updateQuantityinput(item, value){
             item.quantity = value;
             const quantityInput = document.getElementById(`quantity-${item.id}`); // Get the input element for the item
@@ -223,7 +224,6 @@
             }
         }
 
-
         // Function to calculate the total cost of all items in the cart
         function calculateTotal(cart){
             let totalCost = 0;
@@ -251,7 +251,7 @@
         // Function to update the total cost displayed in the cart
         function updateCost(cart){
             let total = calculateTotal(cart);
-            document.getElementById("total").textContent = `Total:$${total.toFixed(2)} SGD`;
+            document.getElementById("total").textContent = `Total: $${total.toFixed(2)} SGD`;
         }
 
         // Function to update the total quantity of items in the cart and update the cart icon
@@ -288,22 +288,19 @@
         totalquantity(cart); // Update the total quantity in the cart icon
         function defaultvalue(wa,x){
             let item = document.getElementById(x);
-            
             if(item.value === ""){
-            item.value = 1
-            wa.quantity = 1
-            updateQuantity(wa,0)
+            item.value = 1;
+            wa.quantity = 1;
+            updateQuantity(wa,0);
             }
-            updateQuantityinput(wa,parseInt(item.value))
-            
+            updateQuantityinput(wa,parseInt(item.value));
         }
+
         function imposeMinMax(id){
-            item = document.getElementById(id)
-            console.log("hi")
+            item = document.getElementById(id);
             if(item.value != ""){
-                console.log(id)
+                console.log(id);
                 if(parseInt(item.value) < parseInt(item.min)){
-                    console.log("hi2")
                     item.value = item.min;
                 }
             }

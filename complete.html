@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soap</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body{
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="complete-container">
+        <div class="success-icon">
+            <img src="Images/Tick.png" alt="">
+        </div>
+        <h1>PAYMENT SUCCESSFUL!</h1>
+        <p>Thank you for shopping with us!</p>
+        <button class="complete-button" id="finish">BACK TO HOME</button>
+    </div>
+    <script>
+        document.getElementById('finish').addEventListener('click', function() {
+            // Redirect to a new HTML page
+            window.location.href = 'index.html';  // Replace with your target HTML file
+        });
+    </script>
+</body>
+</html>

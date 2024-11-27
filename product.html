@@ -33,7 +33,7 @@
     </header>
     <section class="product-page">
         <div class="product-image">
-            <img src="Item 1.png"  id="product-image" alt="">
+            <img src="Item1.png"  id="product-image" alt="">
         </div>
         <div class="product-details">
             <h3 id="product-name">FLORIST SOAP</h3>
@@ -95,45 +95,46 @@
                 name: 'FLORIST SOAP', 
                 price: '$13.00 SGD', 
                 description: 'A refreshing blend of essential oils and walnut shells, perfect for transforming messy hands into masterpieces!',
-                image: 'Images/Item 1.png',
+                image: 'Images/Item1.png',
                 long: "Florist Soap is designed for floral designers, gardeners, and anyone who enjoys creating beauty, even when things get a bit messy. Infused with essential oils of rosemary, eucalyptus, peppermint, and ginger, this soap presents a refreshing and distinctive blend. To enhance its cleaning power, finely ground walnut shells are mixed in, making it perfect for scrubbing away dirt and grime from diligent hands."
             },
             2: { 
                 name: 'CHAI', 
                 price: '$13.00 SGD', 
                 description: 'A warm and fragrant tea.', 
-                image: 'Images/Item 2.png',
+                image: 'Images/Item2.png',
                 long: "A luxurious blend that captures the warm, aromatic essence of your favorite spiced tea. Infused with a rich mix of cinnamon, cardamom, and ginger essential oils, this soap offers a soothing fragrance that invigorates the senses. Its creamy lather gently cleanses while moisturizing your skin, leaving it feeling soft and refreshed. Each bar is crafted with natural ingredients, making it a delightful addition to your self-care routine. Embrace the comforting aroma of chai and transform your daily wash into a rejuvenating ritual."
             },
             3: { 
                 name: 'FROSTED', 
                 price: '$13.00 SGD', 
                 description: 'A frosty, cool scent for your home.',
-                image: 'Images/Item 3.png',
+                image: 'Images/Item3.png',
                 long: "A whimsical blend of delicate pink hues and refreshing scents that evoke the magic of a winter wonderland. Infused with notes of sweet raspberry and creamy vanilla, this soap delivers a delightful fragrance that brightens your mood with every wash. Its gentle formula lathers beautifully, cleansing and nourishing your skin while leaving it feeling silky smooth. With a charming frosted finish, this soap is not only a treat for the senses but also a stunning addition to your bathroom décor. Elevate your bathing experience with the enchanting allure of Frosted Soap!"
             },
             4: { 
                 name: 'WOODLAND', 
                 price: '$13.00 SGD', 
                 description: 'A woodsy, earthy fragrance.',
-                image: 'Images/Item 4.png',
+                image: 'Images/Item4.png',
                 long: "An invigorating blend that brings the essence of nature right to your bath. Infused with refreshing notes of cedarwood, pine, and a hint of fresh moss, this soap transports you to a serene forest retreat with every use. Its natural formula lathers luxuriously, gently cleansing and moisturizing your skin, leaving it feeling rejuvenated and refreshed. The earthy green hue adds a touch of tranquility to your bathroom décor, making each wash a moment of relaxation. Embrace the great outdoors and let Woodland Soap elevate your daily routine!"
             },
             5: { 
                 name: 'PINE DOUGH', 
                 price: '$13.00 SGD', 
                 description: 'A pine-scented dough for crafting.',
-                image: 'Images/Item 5.png',
+                image: 'Images/Item5.png',
                 long: "A refreshing tribute to the crisp, invigorating scent of a pine forest. Enriched with essential oils of fresh pine and eucalyptus, this soap delivers an energizing fragrance that awakens your senses and revitalizes your spirit. Its creamy lather gently cleanses and nourishes your skin, leaving it feeling soft and rejuvenated. With a natural green hue that mirrors the beauty of nature, Pine Bough Soap transforms your daily wash into a soothing escape into the wilderness. Embrace the essence of the outdoors and let this enchanting soap elevate your self-care routine!"
             },
             6: { 
                 name: 'SIMPLY', 
                 price: '$11.00 SGD', 
                 description: 'A simple, classic fragrance.',
-                image: 'Images/Item 6.png',
+                image: 'Images/Item6.png',
                 long: "The embodiment of purity and simplicity in skincare. Crafted with minimal ingredients, this gentle soap is perfect for all skin types, offering a refreshing cleanse without any frills. Its mild formula features nourishing oils that leave your skin feeling clean, soft, and hydrated. With a subtle, fresh scent and a clean, white appearance, Simply Soap elevates your daily routine to a moment of tranquility. Embrace the beauty of simplicity and let your skin experience the straightforward goodness it deserves!"
             }
         };
+
         // Get the product data based on the product ID from the URL.
         const product = products[productId];
 
@@ -171,6 +172,7 @@
         
         // Retrieve the cart from localStorage and parse it.
         cart = JSON.parse(localStorage.getItem("cart"));
+
         // Function to calculate and update the total quantity of items in the cart.
         function totalquantity(cart){
             let total = 0;
@@ -189,6 +191,7 @@
 
         // Call the totalquantity function to update the cart icon when the page loads.
         totalquantity(cart);
+
         // Function to add an item to the cart.
         function addcart(){
             let done = 0; // Variable to track if the item was found in the cart.
@@ -204,7 +207,7 @@
 
             // If the product was not found in the cart, add it as a new item.
             if (!done){
-                cart.push( {id: productId, name:`${product.name}`, quantity: count,price:`${product.price}`});
+                cart.push({id: productId, name:`${product.name}`, quantity: count,price:`${product.price}`});
             }
             
             console.log(cart);
@@ -215,6 +218,7 @@
             // Update the cart icon with the new total quantity.
             totalquantity(cart);
         }
+
         function defaultvalue(){
             let item = document.getElementById("item-quantity");
             if(item.value === ""){
@@ -224,7 +228,6 @@
             else{
                 count = parseInt(item.value)
             }
-
         }
     </script>
 </body>

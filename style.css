@@ -83,7 +83,6 @@ header{
 .showcase{
     position: relative;
     width: 100%;
-
     display: flex;
 }
 
@@ -185,7 +184,6 @@ header{
 
 .flex-item{
     padding: 2%;
-    /* margin: 20px; */
     flex-grow: 1;
     flex-basis: 30%;
     display: flex;
@@ -251,6 +249,7 @@ header{
     margin: 20px;
     padding-right: 50px;
 }
+
 .product-image img{
     width: 100%;
 }
@@ -353,10 +352,12 @@ header{
     font-size: 2em;
     color: rgba(158, 173, 123, 1);
 }
+
 .account input{
     width: 80%;
     padding: 0%;
 }
+
 .signin-input, .signup-input{
     position: relative;
     width: 100%;
@@ -442,7 +443,6 @@ header{
 .cart-summary{
     flex-basis: 20%;
     flex-grow: 2;
-    align-items: left;
 }
 
 .cart-amount{
@@ -497,7 +497,7 @@ header{
 
 .empty{
     color: black;
-    text-align: centers;
+    text-align: center;
 }
 
 .item-quantity{
@@ -580,9 +580,11 @@ footer a{
 section{
     padding-bottom: 1rem;
 }
+
 .item-quantity{
     width: 35px;
 }
+
 /*---------------------------------------- Payment Page ----------------------------------------*/
 h1{
     padding-left: 30px;
@@ -713,9 +715,56 @@ button.pay-button:hover{
 }
 
 .imgcon{
-    position: relative  ;
+    position: relative;
 }
 
 .summary-section .item-details{
-    color:black;
+    color: black;
+}
+
+/*---------------------------------------- Complete Page ----------------------------------------*/
+.complete-container {
+    text-align: center;
+    background: #fff;
+    padding: 30px 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 400px;
+}
+
+.success-icon {
+    margin-bottom: 20px;
+}
+
+.success-icon img{
+    height: 100px;
+    width: 100px;
+}
+
+.complete-container h1 {
+    color: #333;
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.complete-container p {
+    color: #555;
+    margin-bottom: 30px;
+    font-size: 16px;
+}
+
+.complete-button {
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+    background-color: rgba(158, 173, 123, 1);
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    border: transparent;
+}
+
+.complete-button:hover {
+    background-color: #218838;
 }
