@@ -70,6 +70,7 @@ header{
     cursor: pointer; /* Pointer on hover */
     border-radius: 5px; /* Rounded corners */
     align-items: center; /* Vertically center the icon and text */
+    
 }
 
 /*---------------------------------------- Home Page ----------------------------------------*/
@@ -349,13 +350,17 @@ header{
     font-size: 2em;
     color: rgba(158, 173, 123, 1);
 }
-
+.account input{
+    width: 80%;
+    padding: 0%;
+}
 .signin-input, .signup-input{
     position: relative;
     width: 100%;
     height: 50px;
     border-bottom: 2px solid black;
     margin: 30px 0;
+    padding: 0;
 }
 
 .signin-input label, .signup-input label{
@@ -385,14 +390,6 @@ header{
     font-size: 1em;
     color: black;
     font-weight: 600;
-}
-
-.signin-input .icon, .signup-input .icon{
-    position: absolute;
-    right: 8px;
-    font-size: 1.2em;
-    color: black;
-    line-height: 57px;
 }
 
 .account-button{
@@ -565,15 +562,24 @@ header{
 }
 
 footer{
+    margin-top: 100px;
     background-color: rgba(158, 173, 123, 1);
     padding: 20px;
     text-align: center;
+    text-decoration: none;
+}
+
+footer a{
+    color: white;
+    text-decoration: none;
 }
 
 section{
     padding-bottom: 1rem;
 }
-
+.item-quantity{
+    width: 35px;
+}
 /*---------------------------------------- Payment Page ----------------------------------------*/
 h1{
     padding-left: 30px;
