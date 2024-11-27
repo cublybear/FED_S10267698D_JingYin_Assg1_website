@@ -251,6 +251,9 @@ header{
     margin: 20px;
     padding-right: 50px;
 }
+.product-image img{
+    width: 100%;
+}
 
 @media screen and (max-width: 768px){ /* You can adjust 768px to any breakpoint you want */
     .product-page{

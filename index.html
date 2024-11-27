@@ -33,24 +33,21 @@
     </header>
     <section>
         <div class="showcase">
-            <img src="Images/Home Image.png">
+            <img src="Images/Home Image.png" alt="">
             <div class="showcase-showcase">
                 <div class="overlay-text">Lather up with nature's best!</div>
-                <a href="shop.html">
-                    <button class="overlay-button">SHOP NOW</button>
-                </a>
+                
+                    <button class="overlay-button" id="shop">SHOP NOW</button>
             </div>
         </div>
         <div class="index-about">
-            <img src="Images/Learn More Image.png">
+            <img src="Images/Learn More Image.png" alt="">
             <div class="index-about-title">
                 <div class="index-about-text">
                     <h2>Natural products, Handcrafted with Love</h2>
                     <p>We aim to craft exquisite products that nourish both your body and your spirit. Our offerings are formulated with wholesome, natural ingredients and essential oils, completely free from harmful chemicals, allowing you to enjoy guilt-free self-care while ensuring your peace of mind.</p>
                 </div>
-                <a href="about.html">
-                    <button class="index-about-button">LEARN MORE</button>
-                </a>
+                    <button class="index-about-button" id="learn">LEARN MORE</button>
             </div>
         </div>
     </section>
@@ -95,6 +92,14 @@
         }
         
         totalquantity(cart);
+        document.getElementById('shop').addEventListener('click', function() {
+        // Redirect to a new HTML page
+        window.location.href = 'shop.html';  // Replace with your target HTML file
+        });
+        document.getElementById('learn').addEventListener('click', function() {
+        // Redirect to a new HTML page
+        window.location.href = 'about.html';  // Replace with your target HTML file
+        });
     </script>
 </body>
 </html>
