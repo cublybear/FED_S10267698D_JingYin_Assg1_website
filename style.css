@@ -723,7 +723,7 @@ button.pay-button:hover{
 }
 
 /*---------------------------------------- Complete Page ----------------------------------------*/
-.complete-container {
+.complete-container{
     text-align: center;
     background: #fff;
     padding: 30px 20px;
@@ -733,7 +733,7 @@ button.pay-button:hover{
     max-width: 400px;
 }
 
-.success-icon {
+.success-icon{
     margin-bottom: 20px;
 }
 
@@ -742,19 +742,19 @@ button.pay-button:hover{
     width: 100px;
 }
 
-.complete-container h1 {
+.complete-container h1{
     color: #333;
     font-size: 24px;
     margin: 10px 0;
 }
 
-.complete-container p {
+.complete-container p{
     color: #555;
     margin-bottom: 30px;
     font-size: 16px;
 }
 
-.complete-button {
+.complete-button{
     display: inline-block;
     padding: 10px 20px;
     color: white;
@@ -765,6 +765,6 @@ button.pay-button:hover{
     border: transparent;
 }
 
-.complete-button:hover {
-    background-color: #218838;
+.complete-button:hover{
+    cursor: pointer;
 }

@@ -42,7 +42,9 @@
             <p>QUANTITY</p>
             <div class="quantity">
                 <button id="minus" onclick="minus()">-</button>
-                <input class="counter" type="number"  id="item-quantity" placeholder = "enter" min="1" onkeyup=imposeMinMax(this) onblur="defaultvalue()">
+                <!-- Calls 'imposeMinMax' function when the user releases a key -->
+                <!-- Calls 'defaultvalue' function when the user clicks outside the input field or tabs away from it -->
+                <input class="counter" type="number"  id="item-quantity" placeholder="enter" min="1" onkeyup=imposeMinMax(this) onblur="defaultvalue()">
                 <button id="plus" onclick="add()">+</button>
             </div>
             <button onclick="addcart()">ADD TO CART</button>

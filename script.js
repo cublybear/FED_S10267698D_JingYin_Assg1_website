@@ -106,7 +106,7 @@ if (!localStorage.getItem('counter')){
     localStorage.setItem('counter', 0); // Initialize the counter if it doesn't exist
 }
 
-let count =localStorage.getItem('counter');
+let count = localStorage.getItem('counter');
 
 function add(){
     count++;
