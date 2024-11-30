@@ -1,7 +1,7 @@
 # FED Assignment 1
 This is an e-commerce website that sells handmade soaps, providing a simple shopping experience with product details and a basic cart system.
 
-Link to Figma wireframe [here]https://www.figma.com/design/s0ryi9XnewbKW0hcu0ESWw/FED_S10267698_JingYin_Assg1_wireframe?node-id=0-1&m=dev&t=Vzw7zQULDj7J1nWH-1
+Link to Figma wireframe [here](https://www.figma.com/design/s0ryi9XnewbKW0hcu0ESWw/FED_S10267698_JingYin_Assg1_wireframe?node-id=0-1&m=dev&t=Vzw7zQULDj7J1nWH-1)
 
 ## Design Process
 This website is designed for sers who value an intuitive and seamless online shopping experience. These users want to quickly explore products, learn about the brand's philosophy and complete their purchases with minimal hassle. This project address these needs by focusing on a clean, user-friendly interface with clear navigation, detailed product oages and a straightforward checkout process. The design ensures a consistent layout across all pages, keeping the focus on usability.
@@ -58,12 +58,15 @@ As a user, I want a mobile and desktop-friendly design so that I can shop conven
 - JavaScript
 
 ### Credits
-** Code **
-https://chatgpt.com/
-https://stackoverflow.com/
-https://www.youtube.com/
+**Acknowledgement**
+- https://chatgpt.com/
+- https://stackoverflow.com/
+- https://www.youtube.com/
 
-** Design **
-https://rbsoapco.com/
-https://aspenessence.com/
-https://lushsg.com/
+**Media**
+- https://rbsoapco.com/
+
+**Content**
+- https://rbsoapco.com/
+- https://aspenessence.com/
+- https://lushsg.com/
