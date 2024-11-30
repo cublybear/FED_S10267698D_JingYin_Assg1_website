@@ -58,14 +58,12 @@ As a user, I want a mobile and desktop-friendly design so that I can shop conven
 - JavaScript
 
 ### Credits
-**Acknowledgement**
-- https://chatgpt.com/
-- https://stackoverflow.com/
-- https://www.youtube.com/
+** Code **
+https://chatgpt.com/
+https://stackoverflow.com/
+https://www.youtube.com/
 
-**Media**
-
-**Content**
-- https://rbsoapco.com/
-- https://aspenessence.com/
-- https://lushsg.com/
+** Design **
+https://rbsoapco.com/
+https://aspenessence.com/
+https://lushsg.com/
